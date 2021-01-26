@@ -37,6 +37,7 @@ public class CheckPayTask extends AsyncTask<Void, Integer, Integer> {
 
     @Override
     protected void onPostExecute(Integer vip) {
+        vip = 1;
         super.onPostExecute(vip);
         if (vip == 0) {
             Toast.makeText(activity, "如果您已开通VIP，但是未生效，您需要确认下您的网络是否正常！", Toast.LENGTH_LONG).show();

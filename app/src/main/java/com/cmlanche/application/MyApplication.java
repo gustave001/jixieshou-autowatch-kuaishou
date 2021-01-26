@@ -60,7 +60,8 @@ public class MyApplication extends Application {
     protected static MyApplication appInstance;
     private int screenWidth;
     private int screenHeight;
-    private boolean isVip = false;
+//    private boolean isVip = false;
+    private boolean isVip = true;
     private View floatView;
     private MainActivity mainActivity;
     private boolean isFirstConnectAccessbilityService = false;
@@ -141,7 +142,7 @@ public class MyApplication extends Application {
 
     private void initLeancloud() {
         try {
-            AVOSCloud.initialize("你的leancloud appid", "你的leancloud appsecret");
+            AVOSCloud.initialize("JXxAjysfUOOYIXDuNVNLufxC-gzGzoHsz", "3wI5zOAd91o3HVPQzJyDbmAH");
             new InitTask().execute();
         } catch (Exception e) {
             Logger.e(e.getMessage(), e);

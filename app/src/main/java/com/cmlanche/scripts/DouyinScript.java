@@ -47,12 +47,12 @@ public class DouyinScript extends BaseScript {
 
     @Override
     protected int getMinSleepTime() {
-        return 10000;
+        return 30000;
     }
 
     @Override
     protected int getMaxSleepTime() {
-        return 20000;
+        return 40000;
     }
 
     @Override
