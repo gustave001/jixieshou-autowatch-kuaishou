@@ -22,6 +22,7 @@ public class NewOrEditTaskActivity extends BaseActivity {
 
     private TextView taskTypeName;
     private TextInputEditText periodEdit;
+    private TextInputEditText sleepTimeEdit;
     private AppInfo appInfo;
     private AppInfo editedAppInfo;
     private boolean isEdit;
@@ -59,6 +60,7 @@ public class NewOrEditTaskActivity extends BaseActivity {
 
         taskTypeName = findViewById(R.id.name);
         periodEdit = findViewById(R.id.periodEdit);
+        sleepTimeEdit = findViewById(R.id.sleepTimeEdit);
         sureBtn = findViewById(R.id.sureBtn);
         sureBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,11 +71,17 @@ public class NewOrEditTaskActivity extends BaseActivity {
                     return;
                 }
                 String period = periodEdit.getText().toString();
+                String sleepTime = sleepTimeEdit.getText().toString();
                 if (StringUtil.isEmpty(period)) {
                     Toast.makeText(getApplicationContext(), "请输入执行时长", Toast.LENGTH_LONG).show();
                     return;
                 }
+                if (StringUtil.isEmpty(sleepTime)) {
+                    Toast.makeText(getApplicationContext(), "请输入滑动间隔", Toast.LENGTH_LONG).show();
+                    return;
+                }
                 appInfo.setPeriod(Integer.parseInt(period));
+                appInfo.setSleepTime(Integer.parseInt(sleepTime));
 
                 Intent data = new Intent();
                 data.putExtra("appInfo", JSON.toJSONString(appInfo));
@@ -122,7 +130,10 @@ public class NewOrEditTaskActivity extends BaseActivity {
         this.taskTypeName.setText(appInfo.getName());
         findViewById(R.id.sp).setVisibility(View.VISIBLE);
         findViewById(R.id.periodLayout).setVisibility(View.VISIBLE);
+        findViewById(R.id.sleepTimeLayout).setVisibility(View.VISIBLE);
         this.periodEdit.setText(String.valueOf(appInfo.getPeriod()));
         this.periodEdit.setSelection(this.periodEdit.getText().length());
+        this.sleepTimeEdit.setText(String.valueOf(appInfo.getSleepTime()));
+        this.sleepTimeEdit.setSelection(this.sleepTimeEdit.getText().length());
     }
 }

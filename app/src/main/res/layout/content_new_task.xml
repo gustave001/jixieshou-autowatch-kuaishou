@@ -72,6 +72,11 @@
                             android:id="@+id/periodLayout"
                             layout="@layout/new_task_period" />
 
+                        <include
+                                android:visibility="gone"
+                                android:id="@+id/sleepTimeLayout"
+                                layout="@layout/new_task_sleep_time" />
+
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>

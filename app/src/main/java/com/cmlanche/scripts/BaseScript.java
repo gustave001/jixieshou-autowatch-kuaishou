@@ -40,7 +40,7 @@ public abstract class BaseScript implements IScript {
             } catch (Exception e) {
                 Logger.e("执行异常，脚本: " + appInfo.getName(), e);
             } finally {
-                int t = getRandomSleepTime(getMinSleepTime(), getMaxSleepTime());
+                int t = getRandomSleepTime(appInfo.getSleepTime() - 5 < 0 ? 0 : appInfo.getSleepTime(), appInfo.getSleepTime() + 5);
                 Logger.i("休眠：" + t);
                 Utils.sleep(t);
             }
@@ -76,7 +76,7 @@ public abstract class BaseScript implements IScript {
      */
     private int getRandomSleepTime(int min, int max) {
         Random random = new Random();
-        return random.nextInt(max) % (max - min + 1) + min;
+        return (random.nextInt(max) % (max - min + 1) + min) * 1000;
     }
 
     /**

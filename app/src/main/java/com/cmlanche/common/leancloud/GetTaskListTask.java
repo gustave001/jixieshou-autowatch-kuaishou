@@ -40,6 +40,7 @@ public class GetTaskListTask extends AsyncTask<Void, Integer, List<AppInfo>> {
                     appInfo.setFree(obj.getBoolean("free"));
                     appInfo.setPeriod(obj.getInt("period"));
                     appInfo.setPkgName(obj.getString("pkg"));
+                    appInfo.setSleepTime(obj.getInt("sleepTime"));
                     appInfo.setUuid(obj.getObjectId());
                     list.add(appInfo);
                 }

@@ -32,6 +32,11 @@ public class AppInfo {
     private long period;
 
     /**
+     * 间隔刷的时间
+     */
+    private int sleepTime;
+
+    /**
      * 是否免费
      */
     private boolean isFree;
@@ -90,5 +95,13 @@ public class AppInfo {
 
     public void setAppName(String appName) {
         this.appName = appName;
+    }
+
+    public int getSleepTime() {
+        return sleepTime;
+    }
+
+    public void setSleepTime(int sleepTime) {
+        this.sleepTime = sleepTime;
     }
 }

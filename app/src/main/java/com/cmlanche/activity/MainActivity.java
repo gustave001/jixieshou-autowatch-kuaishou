@@ -219,6 +219,7 @@ public class MainActivity extends AppCompatActivity {
                 curr.setPeriod(appInfo.getPeriod());
                 curr.setIcon(appInfo.getIcon());
                 curr.setName(appInfo.getName());
+                curr.setSleepTime(appInfo.getSleepTime());
                 taskListAdapter.notifyDataSetChanged();
                 break;
             }
